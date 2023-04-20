@@ -26,14 +26,19 @@ export const Container = styled.div`
 const StyledLink = styled(NavLink)`
   padding: 10px 15px;
   border-radius: 20px;
+  margin-left: 10px;
   text-decoration: none;
   color: black;
   font-weight: 300;
-  &.hover {
+  &:hover {
     color: white;
     background-color: #2f4f4f;
   }
-  &.active {
+  &:active {
+    color: white;
+    background-color: #2f4f4f;
+  }
+  &:focus {
     color: white;
     background-color: #2f4f4f;
   }
