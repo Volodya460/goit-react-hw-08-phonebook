@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.goit.global/';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -17,10 +17,11 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post('/users/signup', credentials);
+
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      toast('You already have an account');
+      toast(`You have already registered`);
 
       return thunkAPI.rejectWithValue(error.message);
     }
